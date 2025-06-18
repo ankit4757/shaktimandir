@@ -1,1 +1,0 @@
-# ShaktiMandir-Bootstrap
