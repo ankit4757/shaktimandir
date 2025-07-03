@@ -5,7 +5,40 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+#chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
+#chatbot-popup {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+</style>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -148,13 +181,29 @@
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
+            <!-- Floating Chatbot Button -->
+<div id="chatbot-icon" onclick="toggleChatbot()">
+  💬
+</div>
+
+<!-- Chatbot Window -->
+<div id="chatbot-popup">
+  <h5>SkatiMandir Bot</h5>
+  <div id="chatbox" class="mb-2" style="height: 200px; overflow-y: auto; background: #f9f9f9; padding: 10px; border: 1px solid #ccc;"></div>
+  <div class="input-group">
+    <input type="text" id="userInput" class="form-control" placeholder="Type a message..." onkeypress="handleKey(event)">
+    <button class="btn btn-success" onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
 <div class="container">
         <footer class="bd-footer py-5 mt-5 bg-light">
             <div class="container py-5">
                 <div class="row">
                     <div class="col-lg-3 mb-3">
-                        <a class="navbar-brand d-flex align-items-center" href="/index.html">
+                        <a class="navbar-brand d-flex align-items-center" href="index.html">
                             <img src="logo.png" alt="Shakti Mandir Logo" width="50" height="50" class="d-inline-block align-text-top me-2">
                             <span">शक्तिमन्दिरः <br>(ShaktiMandir)</span>
                         </a>
@@ -168,7 +217,7 @@
                     <div class="col-6 col-lg-2 offset-lg-1 mb-3">
                         <h5>Links</h5>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="/index.html">Home</a></li>
+                            <li class="mb-2"><a href="index.html">Home</a></li>
                             <li class="mb-2"><a href="#">Docs</a></li>
                             <li class="mb-2"><a href="#">Examples</a></li>
                         </ul>
@@ -205,5 +254,50 @@
 
     
 </body>
+<script>
+  const chatbox = document.getElementById('chatbox');
+  const userInput = document.getElementById('userInput');
+  const chatbotPopup = document.getElementById('chatbot-popup');
+
+  function toggleChatbot() {
+    chatbotPopup.style.display = chatbotPopup.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function sendMessage() {
+    const message = userInput.value.trim();
+    if (message === '') return;
+
+    chatbox.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+    userInput.value = '';
+    chatbox.scrollTop = chatbox.scrollHeight;
+    setTimeout(() => botReply(message.toLowerCase()), 500);
+  }
+
+  function botReply(message) {
+    let reply = "Sorry, I didn't understand that.";
+
+    if (message.includes("hello") || message.includes("hi")) {
+      reply = "Hello! How can I help you today?";
+    } else if (message.includes("membership")) {
+      reply = "We offer monthly, quarterly, and yearly membership plans.";
+    } else if (message.includes("timing") || message.includes("open")) {
+      reply = "We are open from 6 AM to 10 PM every day.";
+    } else if (message.includes("trainer")) {
+      reply = "Yes, we have certified trainers to assist you.";
+    } else if (message.includes("bye")) {
+      reply = "Goodbye! Stay strong and fit.";
+    }
+
+    chatbox.innerHTML += `<div><strong>Bot:</strong> ${reply}</div>`;
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
+
+  function handleKey(event) {
+    if (event.key === 'Enter') {
+      sendMessage();
+    }
+  }
+</script>
+
 
 </html>
