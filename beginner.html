@@ -18,17 +18,85 @@
 <!-- Placeholder where navbar will load -->
 <div id="navbar-placeholder"></div>
 
-<!-- JS to load navbar -->
-<script>
-  fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('navbar-placeholder').innerHTML = data;
-    });
-</script>
+<div class="container my-5">
+  <h2 class="text-center text-uppercase fw-bold mb-4">Beginner Exercises</h2>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
 
+    <!-- Exercise 1 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/jumping-jacks.jpg" class="card-img-top" alt="Jumping Jacks">
+        <div class="card-body">
+          <h5 class="card-title">Jumping Jacks</h5>
+          <p class="card-text fst-italic text-secondary">("उच्चकूदकः शरीरं त्वरितं करोति।")</p>
+          <p class="card-text">Great warm-up to get your heart rate up and prepare your body for workout.</p>
+        </div>
+      </div>
+    </div>
 
- </div>
+    <!-- Exercise 2 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/wall-sit.jpg" class="card-img-top" alt="Wall Sit">
+        <div class="card-body">
+          <h5 class="card-title">Wall Sit</h5>
+          <p class="card-text fst-italic text-secondary">("दीवारसंस्थापनं जंघायाः दृढतां वर्धयति।")</p>
+          <p class="card-text">Strengthens thighs and improves lower body endurance using body weight.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 3 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/crunches.jpg" class="card-img-top" alt="Crunches">
+        <div class="card-body">
+          <h5 class="card-title">Crunches</h5>
+          <p class="card-text fst-italic text-secondary">("उदरमांसपेशीं शक्तिं ददाति।")</p>
+          <p class="card-text">A simple core exercise to strengthen abdominal muscles and improve posture.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 4 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/knee-pushups.jpg" class="card-img-top" alt="Knee Push-ups">
+        <div class="card-body">
+          <h5 class="card-title">Knee Push-ups</h5>
+          <p class="card-text fst-italic text-secondary">("जंघासमर्पितं दण्डवदनं ऊर्ध्वशरीरबलं वर्धयति।")</p>
+          <p class="card-text">A lighter version of push-ups for building upper body strength at the beginner level.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 5 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/marching.jpg" class="card-img-top" alt="High Knee Marching">
+        <div class="card-body">
+          <h5 class="card-title">High Knee Marching</h5>
+          <p class="card-text fst-italic text-secondary">("ऊर्ध्वजङ्घायाः पदविन्यासः सन्तुलनं च समन्वयशक्तिं च वर्धयति।")</p>
+          <p class="card-text">Gentle cardio that helps improve balance, coordination, and lower body strength.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise 6 -->
+    <div class="col">
+      <div class="card h-100 border-light shadow-sm">
+        <img src="images/arm-circles.jpg" class="card-img-top" alt="Arm Circles">
+        <div class="card-body">
+          <h5 class="card-title">Arm Circles</h5>
+          <p class="card-text fst-italic text-secondary">("बाहुचक्रसञ्चलनं स्कन्धमांसपेशीं सक्रियं करोति।")</p>
+          <p class="card-text">A light warm-up exercise to activate shoulder joints and upper body muscles.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
  <div id="footer-placeholder"></div>
  <script>
   // Load navbar
